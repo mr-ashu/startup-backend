@@ -66,7 +66,7 @@ app.post('/signup',  async (req, res) => {
           }
           const user=await Users.create({...req.body});
 
-          res.send("Signup Sucess")
+          res.send([{token:`${user.email}_#_${user.password}`},{user}])
      } catch (error) {
          
          res.send(error.message)
